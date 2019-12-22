@@ -30,9 +30,9 @@ change to the scheme package in the listener then use the scheme package.
 Then use slime eval functions in the buffer you are editing in. 
 `slime-load-file` doesn't work (yet).
 
-(Looks like `enter-scheme` should work to set `*package*` and
-`*readtable*`, and `exit-scheme` to restore to them previous values.
-See `eval.lisp`.)
+(Looks like `ps:enter-scheme` should work to set `*package*` and
+`*readtable*`, and `ps:exit-scheme` to restore them to their 
+previous values.  See `eval.lisp`.)
 
 ## Acknowledgments
 
@@ -51,15 +51,17 @@ page for more information.
 
 The code was originally written around 1985 by Jonathan Rees.  It ran
 on the [Symbolics Lisp Machines](https://en.wikipedia.org/wiki/Lisp_machine),
-and later in [VAX LISP](https://en.wikipedia.org/wiki/Vax_Common_Lisp)
+and later in [VAX LISP](https://en.wikipedia.org/wiki/Vax_Common_Lisp),
+[Lucid Common Lisp](https://en.wikipedia.org/wiki/Lucid_Inc.),
 and other Common
 Lisp implementations.  Pseudoscheme incubated 
 [Scheme 48](http://s48.org/) (1986),
 standard [Scheme macros](http://3e8.org/pub/pdf-t1/macros_that_work.pdf)
 (1989), and 
-[Mobot Scheme](https://mumble.net/~jar/pubs/scheme-mobile-robots.pdf) (1991).
+[CSRVL Mobot Scheme](https://mumble.net/~jar/pubs/scheme-mobile-robots.pdf)
+(1991).
 
 ## To do
 
- * It needs to be updated for modern Common Lisp implementations. Much of the system building and bootstrap infrastructure could probably be replaced by features already provided by [ASDF](https://common-lisp.net/project/asdf/).
+ * It needs to be updated for modern Common Lisp implementations. Much of the system building and bootstrap infrastructure could probably be replaced by features provided by [ASDF](https://common-lisp.net/project/asdf/).
  * The `.pso` files ought to be moved out of the `src` directory because they are not really source files.
