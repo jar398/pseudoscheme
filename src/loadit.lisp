@@ -1,6 +1,6 @@
 ; -*- Mode: Lisp; Syntax: Common-Lisp; Package: CL-USER; -*-
 ; Copyright (c) 1991-1994 Jonathan Rees / See file COPYING
-
+(in-package :cl-user)
 ;;;; Load script
 
 ; Load this into any package that inherits the usual culprits (DEFUN, etc.).

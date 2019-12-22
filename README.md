@@ -31,7 +31,7 @@ change to the scheme package in the listener then use the scheme package.
 (setq *readtable* ps::roadblock-readtable)
 (in-package :scheme)
 ```
-Then use slime eval functions. in the buffer you are editing in. 
+Then use slime eval functions in the buffer you are editing in. 
 `slime-load-file` doesn't work (yet).
 
 
