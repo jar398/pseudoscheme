@@ -13,11 +13,29 @@ standard [Scheme macros](http://3e8.org/pub/pdf-t1/macros_that_work.pdf)
 (1989), and [Mobot Scheme](https://mumble.net/~jar/pubs/scheme-mobile-robots.pdf)
 (1991).
 
+Thanks to Alan for updates in 2019
+
+## How to use
+
+To load, assuming cwd is the pseudoscheme src dir.
+
+```lisp
+(load "loadit.lisp")
+(load-pseudoscheme)
+```
+
+The main issue running it in slime is the readtable. To make it work, 
+change to the scheme package in the listener then use the scheme package.
+
+```lisp
+(setq *readtable* ps::roadblock-readtable)
+(in-package :scheme)
+```
+Then use slime eval functions. in the buffer you are editing in. 
+`slime-load-file` doesn't work (yet).
+
+
 ## To do
 
-It needs to be updated for modern Common Lisp implementations.  Much
-of the system building architecture could probably be replaced by
-[ASDF](https://common-lisp.net/project/asdf/).
-
-The `.pso` files ought to be moved out of the `src` directory because
-they are not really source files.
+ * It needs to be updated for modern Common Lisp implementations. Much of the system building and bootstrap infrastructure could probably be replaced by [ASDF](https://common-lisp.net/project/asdf/).
+ * The `.pso` files ought to be moved out of the `src` directory because they are not really source files.
