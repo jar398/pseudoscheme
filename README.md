@@ -23,8 +23,9 @@ standard [Scheme macros](http://3e8.org/pub/pdf-t1/macros_that_work.pdf)
 
 Thanks to
  * Alan Ruttenberg for updates in 2019
- * Oleg Trott, maybe 2004 or 2005? (version 2.13a dates from 2005)
- * Hannu Koivisto for updates in ... when, maybe 2001?
+ * Zach Beane for prodding in 2011 (version 2.13b)
+ * Oleg Trott for updates in 2005? (version 2.13a)
+ * Hannu Koivisto for updates in ... when, maybe 2001? (2.13)
  * many others over the years
 
 ## How to use
