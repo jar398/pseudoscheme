@@ -40,6 +40,7 @@
       #+:VMS "LSP"
       #+:ccl "lisp"			;Coral
       #+allegro "lisp" ;or cl ... hmm.
+      #+sbcl "lisp"
       "lisp"				;For Unix, Exploder, and anyone else
       ))
 
@@ -58,6 +59,7 @@
       #+allegro "fasl"
       #+(and cmu hpux) "hpf"
       #+abcl "abcl"
+      #+sbcl "fasl"
       ))   ;(or) => nil otherwise
 
 (defvar *compile-if-necessary-p* nil)
