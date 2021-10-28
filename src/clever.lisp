@@ -169,4 +169,3 @@
 				 ~%but loading source because it's newer.~%"
 				(namestring obj?))
 			(load-it src?)))))))))
-

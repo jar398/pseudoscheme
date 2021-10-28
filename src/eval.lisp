@@ -25,7 +25,7 @@
 
 (defun scheme-eval (form env)
   (eval (scheme-translator:translate form env)))
-      
+
 
 ; Hack to get define-syntaxes communicated from .bin files to system
 ; in which .bin file is loaded.  Calls to *define-syntax!* necessarily
@@ -197,7 +197,7 @@
 	  (*target-package* (scheme-translator:program-env-package env))
 	  (*scheme-read* *scheme-read*))  ;Allow (setq *scheme-read* ...)
       (funcall fun env))))
-	
+
 
 ; TRANSLATE-FILE
 
@@ -374,7 +374,7 @@
                         (system::listener-top-loop ; Seems to work better than system::%top-level
                          ;; You could specify :PROMPT here (see LW:*PROMPT*) but the default is good.
                          :eval-print-hook
-                         #'(lambda (values) 
+                         #'(lambda (values)
                              (let ((*print-case* :downcase))
                                (loop for (result . more) on values
                                      do (write-result result)
@@ -456,4 +456,3 @@
   (set-in-user-env 'scheme::pp		   #'pp)
   (set-in-user-env 'scheme::error	   #'scheme-error)
   (set-in-user-env 'scheme::benchmark-mode #'benchmark-mode))
-
