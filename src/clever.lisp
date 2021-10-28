@@ -38,7 +38,7 @@
       #+ABCL "lisp"
       #+(and :DEC :Ultrix) "lsp"
       #+:VMS "LSP"
-      #+:ccl "LISP"			;Coral
+      #+:ccl "lisp"			;Coral
       #+allegro "lisp" ;or cl ... hmm.
       "lisp"				;For Unix, Exploder, and anyone else
       ))
@@ -53,7 +53,7 @@
       #+(and :DEC :VMS) "FAS"
       #+Lucid (car lucid::*load-binary-pathname-types*)  ;?
       #+KCL "o"
-      #+:ccl "FASL"			;Coral
+      #+:ccl "lx64fsl"			;Coral
       #+LispWorks "fsl"
       #+allegro "fasl"
       #+(and cmu hpux) "hpf"
