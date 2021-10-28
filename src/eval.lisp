@@ -89,7 +89,7 @@
 	;; Intentionally absent: right parenthesis, semicolon, whitespace
 	'(
 	  ;; Non-constituents
-	  "\"#'(,`"
+	  "\"'(,`"
 	  ;; Constituents (more or less)
 	  ;;
 	  ;; Actually we don't want to hack these, since otherwise the
