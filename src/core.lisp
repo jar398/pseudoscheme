@@ -118,8 +118,7 @@
 (defun realp (obj)
   (and (numberp obj)
        (not (complexp obj))))
-
-
+
 ; Auxiliary for SET!
 
 (defun set!-aux (name value CL-sym)
@@ -168,8 +167,7 @@
   `(eval-when (load)
      (funcall *define-syntax!* ,name+exp)))
 
-
-
+
 ; These also appear in loadit.lisp
 (defun filename-preferred-case (name)
   #+unix (string-downcase name)
@@ -262,8 +260,7 @@
 				   (aref (the simple-vector obj2) i)))
 			 (return nil)))))))
         (t nil)))
-
-
+
 ; Handy things.
 
 ; ERROR, WARN, SYNTAX-ERROR (nonstandard)

@@ -92,8 +92,7 @@
 					     ,code))))))))))
 
 
-
-
+
 ; Generate code for a single expressions
 
 (define (generate node env cont)
@@ -176,8 +175,7 @@
 	(if (and (not (eq? g 'dont-accumulate))
 		 (not (memq var g)))
 	    (set-fluid! @CL-variable-references (cons var g))))))
-
-
+
 ; Combinations
 
 (define (generate-call node env cont)
@@ -393,8 +391,7 @@
 	 `(ps-lisp:funcall ,CL-sym ,@args-code)
 	 `(,CL-sym ,@args-code))
      cont)))
-
-
+
 ; LAMBDA
 
 (define (generate-lambda node env cont)
@@ -473,8 +470,7 @@
 		 `(ps-lisp:progn ,the-setq
 			      ,(deliver-value-to-cont `ps:unspecific
 						      cont))))))))
-
-
+
 ; LETREC
 
 (define (generate-letrec node env cont)

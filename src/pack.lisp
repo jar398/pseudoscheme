@@ -5,6 +5,7 @@
 
 (in-package "USER")  ;stifle warnings from compiler/loader
 
+
 ; The SCHEME package is where Scheme symbols live.
 
 (defpackage "SCHEME"

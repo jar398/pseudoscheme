@@ -132,8 +132,7 @@ Like Lisp Mode -- if you've only got 8 fingers..."
 			       (eq (cdr x) :Scheme)))
 		       fs:*file-type-mode-alist*)))
 )  ;(... ngorp) scilobmyS+#
-
-
+
 ; Start Explorer specifics
 ; (Courtesy of Dan Cerys)
 

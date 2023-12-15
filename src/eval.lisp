@@ -20,8 +20,7 @@
     (scheme-translator:make-program-env
        'scheme::scheme-report-environment-4
        (list scheme-translator:revised^4-scheme-structure))))
-
-
+
 ; EVAL itself
 
 (defun scheme-eval (form env)
@@ -233,8 +232,7 @@
   (setq *target-environment* env)
   (setq *target-package* (scheme-translator:program-env-package env))
   (values))
-
-
+
 ; Set up "trampolines" to allow evaluation of Scheme forms directly by
 ; the Common Lisp evaluator.  Alsp, give some help to the pretty-printer
 ; by way of indicating where &bodies are.
@@ -286,8 +284,7 @@
 	scheme::quasiquote
 	scheme::quote
 	scheme::set!))
-
-
+
 ; Read-eval-print loop
 
 (defvar *rep-state-vars* '())

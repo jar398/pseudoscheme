@@ -264,8 +264,7 @@
 (defune syntax-error (message &rest irritants)
   (apply #'ps:scheme-warn message irritants))
 
-
-
+
 ; Printer hooks
 
 #+DEC

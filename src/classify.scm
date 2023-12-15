@@ -121,8 +121,7 @@
 		  (process-syntax-spec (syntax-spec-form dspec) new)))
 	      (letrec-syntax-form-dspecs form))
     (classify (letrec-syntax-form-body form) new)))
-
-
+
 ;==============================================================================
 ; Environments
 
@@ -342,8 +341,7 @@
 		      new-name))))
 	    (make-diverted-environment generation macro-env client-env))))
 
-
-
+
 ;==============================================================================
 ; Processing internal definitions
 

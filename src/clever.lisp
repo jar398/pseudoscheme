@@ -56,7 +56,6 @@
       #+LispWorks "fsl"
       #+allegro "fasl"
       #+(and cmu hpux) "hpf"
-      #+cmu (pathname-type (compile-file-pathname "whatever"))
       ))   ;(or) => nil otherwise
 
 (defvar *compile-if-necessary-p* nil)

@@ -132,8 +132,7 @@
 			  (ps:set-value-from-function our-sym)))
 		    (ps-lisp:quote ,(reverse funs)))
 	port))))
-
-
+
 ; Utilities
 
 (define (with-target-package package thunk)

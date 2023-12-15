@@ -101,8 +101,7 @@
 ; accessors are available for locks: lock-owner, lock-count, lock-name
 ; and lock-lock.
 
-
-
+
 
 ;;; more kmp code
 
@@ -125,8 +124,7 @@
   #-(or LispWorks Allegro) (nyi process-kill))
 
 
-
-
+
 
 ; some JAR code
 
@@ -147,8 +145,7 @@
 ;    mp:mailbox-read mm [wait-reason]
 ;    mp:mailbox-send mm xx
 
-
-
+
 
 ;;;; Interface
 

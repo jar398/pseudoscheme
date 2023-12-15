@@ -255,8 +255,7 @@
   (for-each (lambda (c)
 	      (define-sharp-macro c number-sharp-macro))
 	    '(#\b #\o #\d #\x #\i #\e)))
-
-
+
 ; Tokens
 
 (define (sub-read-token c port)

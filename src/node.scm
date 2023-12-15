@@ -137,8 +137,7 @@
 (define define? (node-predicate 'define))
 (define define-lhs (node-accessor 'define 1))
 (define define-rhs (node-accessor 'define 2))
-
-
+
 ; Variables
 
 (define (make-local-variable uname)

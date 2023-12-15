@@ -19,28 +19,11 @@
 ;		     (compilation-speed 0)))
 
 
-; old version of the following segment:
-; 
-; (defvar *pseudoscheme-directory* 
-;   (make-pathname :name nil :type nil :version nil
-; 		 :defaults *load-truename*))
-; (defvar *use-scheme-read* t)
-; (defvar *use-scheme-write* t)
-
-
-
-(defparameter *pseudoscheme-directory*
-  (let ((our-truename (parse-namestring *load-truename*)))
-    (make-pathname
-     :host (pathname-host our-truename)
-     :device (pathname-device our-truename)
-     :directory (pathname-directory our-truename))))
- (defvar *use-scheme-read* t)
- (defvar *use-scheme-write* t)
- 
-
-
-
+(defvar *pseudoscheme-directory* 
+  (make-pathname :name nil :type nil :version nil
+		 :defaults *load-truename*))
+(defvar *use-scheme-read* t)
+(defvar *use-scheme-write* t)
 
 (defun load-pseudoscheme (&optional (dir *pseudoscheme-directory*))
   (designate-pseudoscheme-directory dir)

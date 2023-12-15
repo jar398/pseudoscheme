@@ -1,4 +1,4 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
 ; File version.scm
 
-(define (translator-version) "Pseudoscheme 2.13")
+(define (translator-version) "Pseudoscheme 2.12")

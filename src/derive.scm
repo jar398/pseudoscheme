@@ -143,8 +143,7 @@
 		(val-exp (cadr (car specs))))
 	    `(,(r 'let) ((,name ,val-exp))
 	       ,(recur (cdr specs))))))))
-
-
+
 ;;;; Quasiquote
 
 (define-usual-syntax 'quasiquote

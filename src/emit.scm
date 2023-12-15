@@ -49,8 +49,7 @@
 	   (case (car yow)
 	     ((ps-lisp:funcall) (funcallify (cadr yow) (cddr yow)))
 	     (else yow))))))
-
-
+
 ; Dinky utilities
 
 (define (insert-&rest l)
