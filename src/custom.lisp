@@ -1,5 +1,5 @@
 ; -*- Mode: Lisp; Syntax: Common-Lisp; Package: PS; -*-
-; File custom.lisp / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File custom.lisp / See file COPYING
 
 ;;;; Customizations for particular Common Lisp implementations
 

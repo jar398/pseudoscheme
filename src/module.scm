@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File module.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File module.scm / See file COPYING
 
 ;;;; Interfaces, program environments, structures
 

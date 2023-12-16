@@ -1,5 +1,5 @@
 ; -*- Mode: Lisp; Syntax: Common-Lisp; Package: REVISED^4-SCHEME; -*-
-; File rts.lisp / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File rts.lisp / See file COPYING
 
 ;;;; Revised^4 Scheme run-time system
 

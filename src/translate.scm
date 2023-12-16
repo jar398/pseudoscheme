@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File translate.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File translate.scm / See file COPYING
 
 ;;;; Translation from Scheme to Common Lisp
 

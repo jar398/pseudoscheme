@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File node.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File node.scm / See file COPYING
 
 ;;;; Node abstraction
 

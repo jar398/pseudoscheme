@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File emit.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File emit.scm / See file COPYING
 
 ;;;; Common Lisp code emission utilities
 

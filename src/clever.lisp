@@ -1,5 +1,5 @@
 ; -*- Mode: Lisp; Syntax: Common-Lisp; Package: CLEVER-LOAD; -*-
-; File clever.lisp / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File clever.lisp / See file COPYING
 
 ; This is really too clever for its own good.  Should phase it out.
 

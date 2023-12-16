@@ -1,5 +1,5 @@
 ; -*- Mode: Lisp; Syntax: Common-Lisp; Package: SCHEME-PURIFY; -*-
-; File hacks.lisp / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File hacks.lisp / See file COPYING
 
 (in-package "SCHEME-PURIFY")
 

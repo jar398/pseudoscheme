@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File strategy.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File strategy.scm / See file COPYING
 
 ;;;; Compute strategy for compiling a LETREC
 

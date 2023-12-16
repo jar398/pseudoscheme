@@ -1,5 +1,5 @@
 ; -*- Mode: Lisp; Syntax: Common-Lisp; Package: PS; -*-
-; File readtable.lisp / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File readtable.lisp / See file COPYING
 
 ;;;; Scheme READ and WRITE
 

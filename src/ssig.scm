@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File ssig.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File ssig.scm / See file COPYING
 
 ;;;; Scheme interfaces
 

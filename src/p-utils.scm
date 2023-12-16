@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File utils.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File utils.scm / See file COPYING
 
 ;;;; Miscellaneous general and not-so-general utilities
 

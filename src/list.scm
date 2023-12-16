@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File list.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File list.scm / See file COPYING
 
 ;;;; List utilities
 

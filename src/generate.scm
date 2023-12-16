@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File generate.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File generate.scm / See file COPYING
 
 ;;;; Common Lisp back end
 

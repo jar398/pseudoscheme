@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File schemify.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File schemify.scm / See file COPYING
 
 ;;;; SCHEMIFY
 

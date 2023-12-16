@@ -1,5 +1,5 @@
 ; -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; File derive.scm / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File derive.scm / See file COPYING
 
 ;;;; Macro expanders for standard derived expression types
 

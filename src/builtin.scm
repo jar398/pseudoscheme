@@ -1,5 +1,5 @@
 ; File builtin.scm / -*- Mode: Scheme; Syntax: Scheme; Package: Scheme; -*-
-; Copyright (c) 1991 Jonathan Rees / See file COPYING
+; See file COPYING
 
 ;;;; Compilation of calls to built-in Scheme procedures
 

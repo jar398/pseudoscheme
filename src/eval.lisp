@@ -1,5 +1,5 @@
 ; -*- Mode: Lisp; Syntax: Common-Lisp; Package: PS; -*-
-; File eval.lisp / Copyright (c) 1991 Jonathan Rees / See file COPYING
+; File eval.lisp / See file COPYING
 
 ;;;; Pseudoscheme run-time system
 
