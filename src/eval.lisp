@@ -222,8 +222,8 @@
       (scheme-eval form *current-rep-environment*)
       (eval form)))
 
-(locally (declare (special user::*ledit-eval*))
-  (setq user::*ledit-eval* #'ledit-eval))
+(locally (declare (special cl-user::*ledit-eval*))
+  (setq cl-user::*ledit-eval* #'ledit-eval))
 
 ;
 

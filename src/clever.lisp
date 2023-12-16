@@ -35,6 +35,7 @@
   (or #+Symbolics (car (zl:send pathname
 				':types-for-canonical-type
 				':lisp))
+      #+ABCL "lisp"
       #+(and :DEC :Ultrix) "lsp"
       #+:VMS "LSP"
       #+:ccl "LISP"			;Coral
@@ -56,6 +57,7 @@
       #+LispWorks "fsl"
       #+allegro "fasl"
       #+(and cmu hpux) "hpf"
+      #+abcl "abcl"
       ))   ;(or) => nil otherwise
 
 (defvar *compile-if-necessary-p* nil)

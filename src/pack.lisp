@@ -3,7 +3,7 @@
 ; If your Common Lisp doesn't have DEFPACKAGE, you'll have to translate
 ; this file manually into appropriate IN-PACKAGE and EXPORT forms.
 
-(in-package "USER")  ;stifle warnings from compiler/loader
+(in-package "CL-USER")  ;stifle warnings from compiler/loader
 
 
 ; The SCHEME package is where Scheme symbols live.

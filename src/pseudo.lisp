@@ -1,5 +1,5 @@
 
-(in-package "USER")
+(in-package "CL-USER")
 
 (load "/zu/jar/pseudo/loadit.lisp")
 
