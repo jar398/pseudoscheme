@@ -293,16 +293,16 @@
 	   (error "losing CASE" sub))))))
 
 ;(and x y)         == (if x y #f)
-;		   == (lisp:if (truep x) y #f)
+;		   == (ps-lisp:if (truep x) y #f)
 ;
 ;(and (true? x) y) == (if (true? x) y #f)
-;                  == (lisp:if (truep (true? x)) y #f)
-;                  == (lisp:if x y #f)
+;                  == (ps-lisp:if (truep (true? x)) y #f)
+;                  == (ps-lisp:if x y #f)
 ;
 ;(truep (and x y)) == (truep (if x y #f))
-;                  == (truep (lisp:if (truep x) y #f))
-;                  == (lisp:if (truep x) (truep y) nil)    [(truep #f) = nil]
-;                  == (lisp:and (truep x) (truep y))
+;                  == (truep (ps-lisp:if (truep x) y #f))
+;                  == (ps-lisp:if (truep x) (truep y) nil)    [(truep #f) = nil]
+;                  == (ps-lisp:and (truep x) (truep y))
 
 (define (generate-and first second env cont)
   (case (continuation-type cont)
@@ -315,20 +315,20 @@
 	       ,(deliver-value-to-cont `ps:false cont)))))
 
 ;(or x y)          == (let ((temp x)) (if temp temp y))
-;		   == (let ((temp x)) (lisp:if (truep temp) temp y))
+;		   == (let ((temp x)) (ps-lisp:if (truep temp) temp y))
 ;
 ;(or (true? x) y)  == (if (true? x) (true? x) y)
-;                  == (lisp:if (truep (true? x)) (true? x) y)
-;                  == (lisp:if x (true? x) y)      [cf. value-form->test-form]
-;                  == (lisp:if x (lisp:or x #f) y)
-;                  == (lisp:if x x y)
-;                  == (lisp:or x y)
+;                  == (ps-lisp:if (truep (true? x)) (true? x) y)
+;                  == (ps-lisp:if x (true? x) y)      [cf. value-form->test-form]
+;                  == (ps-lisp:if x (ps-lisp:or x #f) y)
+;                  == (ps-lisp:if x x y)
+;                  == (ps-lisp:or x y)
 ;
 ;(truep (or x y))  == (truep (if x x y))
-;                  == (truep (lisp:if (truep x) x y))
-;                  == (truep (lisp:if (truep x) x y))
-;                  == (lisp:if (truep x) (truep x) (truep y))
-;                  == (lisp:or (truep x) (truep y))
+;                  == (truep (ps-lisp:if (truep x) x y))
+;                  == (truep (ps-lisp:if (truep x) x y))
+;                  == (ps-lisp:if (truep x) (truep x) (truep y))
+;                  == (ps-lisp:or (truep x) (truep y))
 
 (define (generate-or first second env cont)
   (case (continuation-type cont)

@@ -153,14 +153,11 @@
   (using-environment env
     #'(lambda (env)
 	(without-requiring-in-package
-	 (apply #'clever-load:clever-load filespec
-		:source-type (or (getf keys :source-type)
-				 *scheme-file-type*)
-		:message (format nil "into ~s environment"
-				 (scheme-translator:program-env-id env))
-		#+LispM :package
-		#+LispM (scheme-translator:program-env-package env)
-		keys)))))
+	  (apply #'load
+		 (make-pathname :defaults filespec
+				:type (or (getf keys :source-type)
+					  *scheme-file-type*))
+		 keys)))))
 
 ; COMPILE-FILE
 
@@ -223,8 +220,8 @@
       (scheme-eval form *current-rep-environment*)
       (eval form)))
 
-(locally (declare (special user::*ledit-eval*))
-  (setq user::*ledit-eval* #'ledit-eval))
+(locally (declare (special cl-user::*ledit-eval*))
+  (setq cl-user::*ledit-eval* #'ledit-eval))
 
 ;
 
@@ -273,7 +270,7 @@
   (translate-scheme-form form))
 
 (mapc #'(lambda (scheme-sym)
-	  ;; Allow (LISP:EVAL '(SCHEME::AND ...))
+	  ;; Allow (CL:EVAL '(SCHEME::AND ...))
 	  (setf (macro-function scheme-sym)
 		(macro-function 'translate-me)))
       '(scheme::and

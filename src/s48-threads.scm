@@ -1,7 +1,7 @@
 
 ;; See interface at bottom of file.
 
-(lisp:defpackage "S48-THREADS-SUPPORT"
+(cl:defpackage "S48-THREADS-SUPPORT"
   (:use "COMMON-LISP")
   (:export "MAKE-LOCK"
            "PROCESS-LOCK"
@@ -10,7 +10,7 @@
 	   "MAKE-PLACEHOLDER"
 	   "PLACEHOLDER-REF"
 	   "PLACEHOLDER-SET"))
-(lisp:in-package "S48-THREADS-SUPPORT")
+(cl:in-package "S48-THREADS-SUPPORT")
 
 ; KMP's code
 
@@ -152,7 +152,7 @@
 
 ;;;; Interface
 
-(lisp:in-package "SCHEME")
+(cl:in-package "SCHEME")
 
 ; Temp kludge
 

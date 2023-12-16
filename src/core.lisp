@@ -22,13 +22,13 @@
 (proclaim '(inline truep true? scheme-symbol-p))
 
 ; Convert Scheme boolean to Lisp boolean.
-;  E.g. (lisp:if (truep foo) ...)
+;  E.g. (cl:if (truep foo) ...)
 
 (defun truep (scheme-test)
   (not (eq scheme-test false)))
 
 ; Convert Lisp boolean to Scheme boolean.
-;  E.g. (cons (true? (lisp:numberp x)) ...)
+;  E.g. (cons (true? (cl:numberp x)) ...)
 ; This assumes that the argument is never the empty list.
 
 (defun true? (cl-test) (or cl-test false))
@@ -294,7 +294,7 @@
 
 ; PP (nonstandard)
 
-(defun pp (obj &optional (port *standard-input*))
+(defun pp (obj &optional (port *standard-output*))
   (let ((*print-pretty* t)
 	(*print-length* nil)
 	(*print-level* nil))

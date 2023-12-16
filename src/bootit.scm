@@ -18,13 +18,12 @@
 
 (define (bootit . dir-option)
   (cond ((not (null? dir-option))
-	 (set! *pseudoscheme-directory* (lisp:pathname (car dir-option))))
+	 (set! *pseudoscheme-directory* (cl:pathname (car dir-option))))
 	((not *pseudoscheme-directory*)
 	 (set! *pseudoscheme-directory*
-	       (lisp:make-pathname :name 'lisp:nil
-				   :type 'lisp:nil
-				   :defaults
-				     lisp:*default-pathname-defaults*))))
+	       (cl:make-pathname :name 'cl:nil
+				 :type 'cl:nil
+				 :defaults cl:*default-pathname-defaults*))))
   (boot-initialize)
   (load-untranslated-translator)
   (fix-reader-if-necessary)
@@ -34,39 +33,39 @@
 (define clever-load #f)
 
 (define (boot-initialize)
-  ;; For LISP:LOAD to work, we need for *PACKAGE* to be bound to
+  ;; For CL:LOAD to work, we need for *PACKAGE* to be bound to
   ;; something other than the SCHEME package.  Since all these files start
   ;; with IN-PACKAGE forms, it doesn't matter which package in particular, as
   ;; long as it contains IN-PACKAGE and DEFPACKAGE.
-  (lisp:let ((lisp:*package* (or (lisp:find-package "USER")
-				 (lisp:make-package "USER"))))
+  (cl:let ((cl:*package* (or (cl:find-package "CL-USER")
+			     (cl:make-package "CL-USER"))))
 
     ;; Create the PS package
-    (lisp:load (pseudo-pathname "pack"))
+    (cl:load (pseudo-pathname "pack"))
 
     ;; Get clever file loader
-    (lisp:load (pseudo-pathname "clever") :verbose 'lisp:nil)
-    (set! clever-load
-	  (lisp:symbol-function
-	   (lisp:intern "CLEVER-LOAD"
-			(lisp:find-package "CLEVER-LOAD"))))
+    ;; (cl:load (pseudo-pathname "clever") :verbose 'cl:nil)
+    ;; (set! clever-load
+    ;;       (cl:symbol-function
+    ;;        (cl:intern "CLEVER-LOAD"
+    ;;                   (cl:find-package "CLEVER-LOAD"))))
 
     ;; Fix SCHEME package if necessary
 ;    (clever-load (pseudo-pathname "purify") :compile-if-necessary #t)
-;    (lisp:funcall (lisp:symbol-function
-;                   (lisp:intern "FIX-SCHEME-PACKAGE-IF-NECESSARY"
-;                                (lisp:find-package "SCHEME-PURIFY")))
-;                  (lisp:symbol-package 'askdjfh))
-    ))
+;    (cl:funcall (cl:symbol-function
+;                 (cl:intern "FIX-SCHEME-PACKAGE-IF-NECESSARY"
+;                            (cl:find-package "SCHEME-PURIFY")))
+;                (cl:symbol-package 'askdjfh))
+          ))
 
 
 (define (pseudo-pathname name)
-  (lisp:make-pathname :name (filename-preferred-case name)
-		      :defaults *pseudoscheme-directory*))
+  (cl:make-pathname :name (filename-preferred-case name)
+		    :defaults *pseudoscheme-directory*))
 
 (define (filename-preferred-case name)
-  #+unix (lisp:string-downcase name)
-  #-unix (lisp:string-upcase name)
+  #+unix (cl:string-downcase name)
+  #-unix (cl:string-upcase name)
   )
 
 (define *scheme-file-type*     (filename-preferred-case "scm"))
@@ -102,18 +101,15 @@
 
 (define (load-untranslated-translator)
   ;; Make sure we perform integrations!
-  (lisp:if (lisp:fboundp 'benchmark-mode)
-	   (benchmark-mode))
+  (cl:if (cl:fboundp 'benchmark-mode)
+	 (benchmark-mode))
   (set! translator-files
 	(call-with-input-file (pseudo-pathname "translator.files") read))
-  (for-each load-scheme translator-files)
+  (for-each (lambda (spec)
+	      (load (cl:make-pathname :defaults (cl:merge-pathnames spec)
+				       :type *scheme-file-type*)))
+            translator-files)
   'done)
-
-(define (load-scheme file)
-  (clever-load (pseudo-pathname file)
-	       :source-type *scheme-file-type*
-	       :object-type *boot-file-type*
-	       :compile-if-necessary #t))
 
 ; ----- Translating the run-time system
 
@@ -121,8 +117,8 @@
   ;; In principle, there could be more stuff here.
   (write-closed-definitions
      revised^4-scheme-structure
-     (lisp:make-pathname :type *translated-file-type*
-			 :defaults (pseudo-pathname "closed")))
+     (cl:make-pathname :type *translated-file-type*
+		       :defaults (pseudo-pathname "closed")))
   (for-each (lambda (f)
 	      (translate-a-file f revised^4-scheme-env))
 	    '(;; These are both optional.  Cf. load-run-time in loadit.scm.
@@ -147,8 +143,8 @@
 (define (translate-a-file f env)
   (let ((f (pseudo-pathname f)))
     (really-translate-file
-     (lisp:make-pathname :type *scheme-file-type* :defaults f)
-     (lisp:make-pathname :type *translated-file-type* :defaults f)
+     (cl:make-pathname :type *scheme-file-type* :defaults f)
+     (cl:make-pathname :type *translated-file-type* :defaults f)
      env)))
 
 
@@ -161,26 +157,26 @@
 
 (define (fix-reader-if-necessary)
   (if (not (eq? (car ''foo) 'quote))
-      (lisp:set-macro-character
+      (cl:set-macro-character
         #\'
 	(lambda (stream c)
-	  (list ''quote (lisp:read stream 'lisp:t 'lisp:nil 'lisp:t)))))
+	  (list ''quote (cl:read stream 'cl:t 'cl:nil 'cl:t)))))
   (if (not (eq? (car '`(foo)) 'quasiquote))
-      (begin (lisp:set-macro-character
+      (begin (cl:set-macro-character
 	      #\`
 	      (lambda (stream c)
 		(list ''quasiquote
-		      (lisp:read stream 'lisp:t 'lisp:nil 'lisp:t))))
-	     (lisp:set-macro-character
+		      (cl:read stream 'cl:t 'cl:nil 'cl:t))))
+	     (cl:set-macro-character
 	      #\,
 	      (lambda (stream c)
 		(let* ((following-char
-			(lisp:peek-char 'lisp:nil stream
-					'lisp:t 'lisp:nil 'lisp:t))
+			(cl:peek-char 'cl:nil stream
+                                      'cl:t 'cl:nil 'cl:t))
 		       (marker (cond ((char=? following-char #\@)
-				      (lisp:read-char stream)
+				      (cl:read-char stream)
 				      'unquote-splicing)
 				     (else
 				      'unquote))))
 		  (list marker
-			(lisp:read stream 'lisp:t 'lisp:nil 'lisp:t))))))))
+			(cl:read stream 'cl:t 'cl:nil 'cl:t))))))))

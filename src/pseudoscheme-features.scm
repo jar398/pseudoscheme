@@ -28,12 +28,12 @@
 
 ; FEATURES
 
-(define force-output #'lisp:force-output)
+(define force-output #'cl:force-output)
 
 (define (string-hash s)
   (let ((n (string-length s)))
     (do ((i 0 (+ i 1))
-         (h 0 (+ h (lisp:char-code (string-ref s i)))))
+         (h 0 (+ h (cl:char-code (string-ref s i)))))
         ((>= i n) h))))
 
 (define (make-immutable! thing) thing)
@@ -43,48 +43,49 @@
 
 ; BITWISE
 
-(define arithmetic-shift #'lisp:ash)
-(define bitwise-and #'lisp:logand)
-(define bitwise-ior #'lisp:logior)
-(define bitwise-not #'lisp:lognot)
+(define arithmetic-shift #'cl:ash)
+(define bitwise-and #'cl:logand)
+(define bitwise-ior #'cl:logior)
+(define bitwise-not #'cl:lognot)
 
 
 ; ASCII
 
-(define char->ascii #'lisp:char-code)
-(define ascii->char #'lisp:code-char)
-(define ascii-limit lisp:char-code-limit)
+(define char->ascii #'cl:char-code)
+(define ascii->char #'cl:code-char)
+(define ascii-limit cl:char-code-limit)
 (define ascii-whitespaces '(32 10 9 12 13))
 
 
 ; CODE-VECTORS
 
 (define (make-code-vector len . fill-option)
-  (lisp:make-array len :element-type '(lisp:unsigned-byte 8)
-		       :initial-element (if (null? fill-option)
-					    0
-					    (car fill-option))))
+  (cl:make-array len
+		 :element-type '(cl:unsigned-byte 8)
+		 :initial-element (if (null? fill-option)
+				      0
+				      (car fill-option))))
 
 (define (code-vector? obj)
-  (ps:true? (lisp:typep obj
-			(lisp:quote (lisp:simple-array (lisp:unsigned-byte 8)
-						       (lisp:*))))))
+  (ps:true? (cl:typep obj
+		      (cl:quote (cl:simple-array (cl:unsigned-byte 8)
+						 (cl:*))))))
 
 (define (code-vector-ref bv k)
-  (lisp:aref (lisp:the (lisp:simple-array (lisp:unsigned-byte 8) (lisp:*))
-		       bv)
-	     k))
+  (cl:aref (cl:the (cl:simple-array (cl:unsigned-byte 8) (cl:*))
+		   bv)
+	   k))
 
 (define (code-vector-set! bv k val)
-  (lisp:setf (lisp:aref (lisp:the (lisp:simple-array (lisp:unsigned-byte 8)
-						     (lisp:*))
-				  bv)
-			k)
-	     val))
+  (cl:setf (cl:aref (cl:the (cl:simple-array (cl:unsigned-byte 8)
+					     (cl:*))
+			    bv)
+		    k)
+	   val))
 
 (define (code-vector-length bv)
-  (lisp:length (lisp:the (lisp:simple-array (lisp:unsigned-byte 8) (lisp:*))
-			 bv)))
+  (cl:length (cl:the (cl:simple-array (cl:unsigned-byte 8) (cl:*))
+		     bv)))
 
 
 ; The rest is unnecessary in Pseudoscheme versions 2.8d and after.
@@ -103,10 +104,10 @@
 ;
 ;(define (dynamic-wind in body out)
 ;  (in)
-;  (lisp:unwind-protect (body)
+;  (cl:unwind-protect (body)
 ;    (out)))
 ;
-;(define values #'lisp:values)
+;(define values #'cl:values)
 ;
 ;(define (call-with-values thunk receiver)
-;  (lisp:multiple-value-call receiver (thunk)))
+;  (cl:multiple-value-call receiver (thunk)))

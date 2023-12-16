@@ -9,12 +9,12 @@
 (define define-record-discloser #'scheme-translator::define-record-discloser)
 
 (define (record-type? x)
-  (lisp:if (scheme-translator::record-type-descriptor-p x) #t #f))
+  (cl:if (scheme-translator::record-type-descriptor-p x) #t #f))
 (define record-type-field-names #'scheme-translator::rtd-field-names)
 (define record-type-name	#'scheme-translator::rtd-identification)
 
 ; Internal record things, for inspector or whatever
 (define disclose-record #'scheme-translator::disclose-record)
 (define record-type #'scheme-translator::record-type)
-(define (record? x) (lisp:if (scheme-translator::record-type x) #t #f))
+(define (record? x) (cl:if (scheme-translator::record-type x) #t #f))
 

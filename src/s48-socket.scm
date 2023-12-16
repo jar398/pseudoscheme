@@ -17,7 +17,7 @@
 #-LispWorks
 (define (close-socket sock)
   
-  #+Allegro 'we-dont-need-no-close-here ;(lisp:close sock)
+  #+Allegro 'we-dont-need-no-close-here ;(cl:close sock)
    )
 
 #-LispWorks
@@ -90,7 +90,7 @@
 
 
 (define (display-condition x oport) 
-  (lisp:format oport "~&~A~&" x))
+  (cl:format oport "~&~A~&" x))
 
 (define (disclose-condition x) (cl:princ-to-string x))
   
